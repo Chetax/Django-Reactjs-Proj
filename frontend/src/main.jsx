@@ -1,13 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import 'react-toastify/dist/ReactToastify.css';
-
 import { ToastContainer } from 'react-toastify';
-createRoot(document.getElementById('root')).render(
+import Navabr from './components/Navbar.jsx';
+ createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+        <BrowserRouter>
+
+            <App />
     <ToastContainer 
         position="top-right"
         autoClose={3000}
@@ -18,5 +21,7 @@ createRoot(document.getElementById('root')).render(
         draggable
         theme="colored"
       />
+
+      </BrowserRouter>
   </StrictMode>,
 )

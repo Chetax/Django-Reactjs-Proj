@@ -1,9 +1,11 @@
 import React, { useState ,useEffect} from 'react'
 import Navbar from './components/Navbar'
-import Message from './components/Message'
-import Form from './components/Form'
+import SignUpForm from './components/SignUpForm.jsx'
+import NotFounde from './components/NotFounde.jsx'
 import AxiosInstance from './api/students.js'
-import { ToastContainer } from 'react-toastify';
+import { Route,Routes } from 'react-router-dom'
+import LoginForm from './components/LoginForm.jsx'
+import Home from './components/Home.jsx'
 const App = () => {
   const [data,setdata]=useState([]);
 
@@ -24,10 +26,12 @@ const App = () => {
   },[])
   return (
     <div>
-  <Navbar/>
-<Message text="First Message"/>
-<Form/>
-
+    <Routes>
+        <Route path="/signup" element={<SignUpForm/>} />
+        <Route path='/login' element={<LoginForm/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
+        <Route path="*" element={<NotFounde />} />
+      </Routes>
 </div>
   )
 }
